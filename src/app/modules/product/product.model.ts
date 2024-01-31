@@ -1,13 +1,13 @@
 import { Schema, model } from 'mongoose';
-import { TProduct } from './product.interface';
+import { TBook } from './product.interface';
 import { bookformat } from './product.constant';
 
-const productSchema = new Schema<TProduct>(
+const productSchema = new Schema<TBook>(
   {
     name: {
       type: String,
       require: true,
-      unique:true
+      unique: true,
     },
     price: {
       type: Number,
@@ -15,6 +15,10 @@ const productSchema = new Schema<TProduct>(
     },
     quantity: {
       type: Number,
+      require: true,
+    },
+    imageurl: {
+      type: String,
       require: true,
     },
     releaseDate: {
@@ -56,4 +60,4 @@ const productSchema = new Schema<TProduct>(
   },
 );
 
-export const product = model<TProduct>('Product',productSchema)
+export const Product = model<TBook>('Product', productSchema);
