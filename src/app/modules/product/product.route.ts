@@ -10,5 +10,12 @@ router.post(
   validateRequest(productValidation.createProductValidationSchema),
   productControllers.createBook,
 );
+router.get('/', productControllers.getAllProducts);
+router.put(
+  '/updatebook',
+  validateRequest(productValidation.updateProductValidationSchema),
+  productControllers.updateProductById,
+);
+router.delete('/deletebook', productControllers.deleteProductById);
 
 export const productRoutes = router;

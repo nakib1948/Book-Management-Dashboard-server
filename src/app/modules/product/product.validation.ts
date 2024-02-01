@@ -104,4 +104,5 @@ const updateProductValidationSchema = z.object({
 
 export const productValidation = {
   createProductValidationSchema,
+  updateProductValidationSchema
 };

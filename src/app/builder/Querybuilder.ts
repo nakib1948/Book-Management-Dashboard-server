@@ -21,6 +21,7 @@ class QueryBuilder<T> {
         ),
       });
     }
+    return this
   }
 
   filter() {
