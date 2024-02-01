@@ -6,3 +6,7 @@ const createBook = async(book:TBook)=>{
     return await Product.create(book)
 }
 
+export const productServices = {
+    createBook
+  };
+  
