@@ -39,5 +39,6 @@ const deleteBookById = async (BookId: string[]) => {
 export const productServices = {
   createBook,
   getAllBooks,
-  deleteBookById
+  deleteBookById,
+  updateBookById,
 };
