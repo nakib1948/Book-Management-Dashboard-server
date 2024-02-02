@@ -12,7 +12,7 @@ router.post(
 );
 router.get('/', productControllers.getAllProducts);
 router.put(
-  '/updatebook',
+  '/updatebook/:id',
   validateRequest(productValidation.updateProductValidationSchema),
   productControllers.updateProductById,
 );

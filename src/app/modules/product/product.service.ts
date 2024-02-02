@@ -8,7 +8,6 @@ const createBook = async (book: TBook) => {
 };
 
 const getAllBooks = async (query: Record<string, unknown>) => {
-    console.log(query)
   const bookQuery = new QueryBuilder(Product.find(), query)
     .search(bookSearchableFields)
     .filter()
@@ -33,7 +32,7 @@ const updateBookById = async (bookId: string, payload: Partial<TBook>) => {
 };
 
 const deleteBookById = async (BookId: string[]) => {
-  const result = await Product.deleteMany({ id: { $in: BookId } });
+  const result = await Product.deleteMany({ _id: { $in: BookId } });
   return result;
 };
 
