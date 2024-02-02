@@ -8,7 +8,6 @@ const createSalesHistory = async (sales: TSales) => {
     try {
         session.startTransaction()
         const findProduct = await Product.findById(sales.productId).session(session);
-
         const availableQuantity = findProduct.quantity - sales.quantity;
         const updateQuantity = await Product.findByIdAndUpdate(sales.productId, {
           quantity: availableQuantity,
@@ -21,9 +20,13 @@ const createSalesHistory = async (sales: TSales) => {
         await session.abortTransaction();
         await session.endSession()
     }
- 
 };
+
+const getAllSalesInformation =async () => {
+    return await Sales.find() ;
+}
 
 export const salesServices = {
   createSalesHistory,
+  getAllSalesInformation
 };
