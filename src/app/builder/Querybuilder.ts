@@ -21,25 +21,32 @@ class QueryBuilder<T> {
         ),
       });
     }
-    return this
+    return this;
   }
 
   filter() {
     const queryObj = { ...this.query };
 
-    const excludeFields = [
-      'minPrice',
-      'maxPrice',
-      'searchTerm',
-      'sort',
-      'limit',
-      'page',
-      'fields',
-    ];
+    const excludeFields = ['searchTerm', 'sort', 'limit', 'page', 'fields'];
 
     excludeFields.forEach((el) => delete queryObj[el]);
+    if (
+      queryObj.hasOwnProperty('minPrice') ||
+      queryObj.hasOwnProperty('maxPrice')
+    ) {
+      const priceFilter = {
+        $gte: Number(queryObj.minPrice),
+        $lte: Number(queryObj.maxPrice),
+      };
+
+      queryObj.price = priceFilter;
+
+      delete queryObj.minPrice;
+      delete queryObj.maxPrice;
+    }
 
     this.modelQuery = this.modelQuery.find(queryObj as FilterQuery<T>);
+
     return this;
   }
 

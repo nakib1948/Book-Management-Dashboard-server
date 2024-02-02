@@ -8,6 +8,7 @@ const createBook = async (book: TBook) => {
 };
 
 const getAllBooks = async (query: Record<string, unknown>) => {
+    console.log(query)
   const bookQuery = new QueryBuilder(Product.find(), query)
     .search(bookSearchableFields)
     .filter()
