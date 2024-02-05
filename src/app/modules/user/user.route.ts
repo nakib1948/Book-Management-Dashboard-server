@@ -11,7 +11,7 @@ router.post(
   UserControllers.createUser,
 );
 
-router.get(
+router.post(
   '/login',
   validateRequest(userValidation.loginValidationSchema),
   UserControllers.loginUser,

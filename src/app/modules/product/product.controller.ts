@@ -38,10 +38,8 @@ const updateProductById = catchAsync(async (req, res) => {
 });
 
 const deleteProductById = catchAsync(async (req, res) => {
-  const id = req.body.id;
-  
+  const id = req.body;
   const result = await productServices.deleteBookById(id);
-
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,

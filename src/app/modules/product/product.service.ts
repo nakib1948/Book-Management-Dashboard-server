@@ -24,10 +24,7 @@ const getAllBooks = async (query: Record<string, unknown>) => {
 };
 
 const updateBookById = async (bookId: string, payload: Partial<TBook>) => {
-  const result = await Product.findByIdAndUpdate({ _id: bookId }, payload, {
-    new: true,
-    runValidators: true,
-  });
+  const result = await Product.findByIdAndUpdate({ _id: bookId }, payload);
   return result;
 };
 
