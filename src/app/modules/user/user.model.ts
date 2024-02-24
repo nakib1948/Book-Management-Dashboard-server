@@ -16,6 +16,10 @@ const userSchema = new Schema<TUser>(
       type: String,
       require: true,
     },
+    role:{
+      type:String,
+      required:true
+    }
   },
   {
     timestamps: true,
