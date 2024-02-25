@@ -14,6 +14,29 @@ const addProductToCart = catchAsync(async (req, res) => {
   });
 });
 
+const getcartInformation = catchAsync(async (req, res) => {
+  const { userEmail } = req.params;
+  const result = await cartServices.getcartInformation(userEmail);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'cart information are retrieved successfully',
+    data: result,
+  });
+});
+const quantityUpdate = catchAsync(async (req, res) => {
+    const result = await cartServices.quantityUpdate(req.body);
+  
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'Product quantity is updated successfully',
+      data: result,
+    });
+  });
 export const cartControllers = {
   addProductToCart,
+  getcartInformation,
+  quantityUpdate,
 };

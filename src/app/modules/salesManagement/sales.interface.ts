@@ -5,5 +5,7 @@ export type TSales = {
     quantity: number;
     date:string;
     productName:string;
-    productId : Types.ObjectId
+    productId : Types.ObjectId;
+    contactNumber: string;
+    userEmail:string;
 }

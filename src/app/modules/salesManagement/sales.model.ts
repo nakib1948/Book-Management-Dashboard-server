@@ -23,6 +23,14 @@ const salesSchema = new Schema<TSales>(
       type: Schema.Types.ObjectId,
       require: true,
     },
+    contactNumber: {
+      type: String,
+      required: true,
+    },
+    userEmail: {
+      type: String,
+      required: true,
+    },
   },
   {
     timestamps: true,

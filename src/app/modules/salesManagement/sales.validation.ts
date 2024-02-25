@@ -22,6 +22,14 @@ const salesValidationSchema = z.object({
       invalid_type_error: 'productId must be string',
       required_error: 'productId is required',
     }),
+    contactNumber: z.string({
+      invalid_type_error: 'contactNumber must be string',
+      required_error: 'contactNumber is required',
+    }),
+    userEmail: z.string({
+      invalid_type_error: 'userEmail must be string',
+      required_error: 'userEmail is required',
+    }),
   }),
 });
 
