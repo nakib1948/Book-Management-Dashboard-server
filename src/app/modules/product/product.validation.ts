@@ -47,62 +47,92 @@ const createProductValidationSchema = z.object({
       invalid_type_error: 'language must be string',
       required_error: 'language is required',
     }),
+
     format: z.enum([...bookformat] as [string, ...string[]]),
+    userEmail: z.string({
+      invalid_type_error: 'userEmail must be string',
+      required_error: 'userEmail is required',
+    }),
   }),
 });
 
-
 const updateProductValidationSchema = z.object({
-    body: z.object({
-      name: z.string({
+  body: z.object({
+    name: z
+      .string({
         invalid_type_error: 'product must be string',
         required_error: 'Product is required',
-      }).optional(),
-      price: z.number({
+      })
+      .optional(),
+    price: z
+      .number({
         invalid_type_error: 'Price must be number',
         required_error: 'price is required',
-      }).optional(),
-      quantity: z.number({
+      })
+      .optional(),
+    quantity: z
+      .number({
         invalid_type_error: 'quantity must be number',
         required_error: 'quantity is required',
-      }).optional(),
-      imageurl: z.string({
+      })
+      .optional(),
+    imageurl: z
+      .string({
         invalid_type_error: 'imageurl must be number',
         required_error: 'imageurl is required',
-      }).optional(),
-      releaseDate: z.string({
+      })
+      .optional(),
+    releaseDate: z
+      .string({
         invalid_type_error: 'releaseDate must be string',
         required_error: 'releaseDate is required',
-      }).optional(),
-      author: z.string({
+      })
+      .optional(),
+    author: z
+      .string({
         invalid_type_error: 'author must be string',
         required_error: 'author is required',
-      }).optional(),
-      isbn: z.string({
+      })
+      .optional(),
+    isbn: z
+      .string({
         invalid_type_error: 'isbn must be string',
         required_error: 'isbn is required',
-      }).optional(),
-      genre: z.string({
+      })
+      .optional(),
+    genre: z
+      .string({
         invalid_type_error: 'genre must be string',
         required_error: 'genre is required',
-      }).optional(),
-      publisher: z.string({
+      })
+      .optional(),
+    publisher: z
+      .string({
         invalid_type_error: 'publisher must be string',
         required_error: 'publisher is required',
-      }).optional(),
-      series: z.string({
+      })
+      .optional(),
+    series: z
+      .string({
         invalid_type_error: 'series must be string',
         required_error: 'series is required',
-      }).optional(),
-      language: z.string({
+      })
+      .optional(),
+    language: z
+      .string({
         invalid_type_error: 'language must be string',
         required_error: 'language is required',
-      }).optional(),
-      format: z.enum([...bookformat] as [string, ...string[]]).optional(),
-    }),
-  });
+      })
+      .optional(),
+    format: z.enum([...bookformat] as [string, ...string[]]).optional(),
+    userEmail: z.string({
+      invalid_type_error: 'userEmail must be string',
+      required_error: 'userEmail is required',
+    }).optional()
+  }),
+});
 
 export const productValidation = {
   createProductValidationSchema,
-  updateProductValidationSchema
+  updateProductValidationSchema,
 };

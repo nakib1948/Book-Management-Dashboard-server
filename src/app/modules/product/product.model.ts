@@ -54,6 +54,10 @@ const productSchema = new Schema<TBook>(
       require: true,
       enum: bookformat,
     },
+    userEmail: {
+      type: String,
+      require: true,
+    },
   },
   {
     timestamps: true,

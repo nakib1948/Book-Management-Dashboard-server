@@ -13,4 +13,5 @@ export type TBook = {
   series: string;
   language: string;
   format: bookFormat;
+  userEmail:string;
 };

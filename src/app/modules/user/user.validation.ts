@@ -13,10 +13,10 @@ const userValidationSchema = z.object({
       })
       .min(5, { message: 'Password must be at least 5 characters long' })
       .max(20, { message: 'Password can not be more than 20 characters' }),
-  }),
-  role: z.string({
-    invalid_type_error: 'role must be string',
-    required_error: 'role is required',
+    role: z.string({
+      invalid_type_error: 'role must be string',
+      required_error: 'role is required',
+    }),
   }),
 });
 
