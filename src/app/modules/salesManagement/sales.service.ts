@@ -24,8 +24,9 @@ const createSalesHistory = async (sales: TSales) => {
     }
 };
 
-const getAllSalesInformation =async () => {
-    return await Sales.find() ;
+const getAllSalesInformation =async (email) => {
+  
+    return await Sales.find({userEmail:email}) ;
 }
 
 export const salesServices = {

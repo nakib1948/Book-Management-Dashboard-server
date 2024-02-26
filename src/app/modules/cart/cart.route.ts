@@ -15,5 +15,6 @@ router.patch(
     '/quantityUpdate',auth(),
     cartControllers.quantityUpdate,
 );
+router.delete('/removefromcart', auth(),cartControllers.removeFromCart);
 
 export const cartRoutes = router;

@@ -35,8 +35,20 @@ const quantityUpdate = catchAsync(async (req, res) => {
       data: result,
     });
   });
+
+  const removeFromCart = catchAsync(async (req, res) => {
+    await cartServices.removeFromCart(req.body);
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'Product is removed successfully',
+      data: null,
+    });
+  });
+
 export const cartControllers = {
   addProductToCart,
   getcartInformation,
   quantityUpdate,
+  removeFromCart
 };

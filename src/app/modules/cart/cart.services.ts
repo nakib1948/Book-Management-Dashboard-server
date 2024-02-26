@@ -54,8 +54,33 @@ const quantityUpdate = async (data) => {
   }
 };
 
+const removeFromCart = async(data)=>{
+    const session = await mongoose.startSession();
+    try {
+      session.startTransaction();
+      const findProduct = await Product.findById(data.productId).session(session);
+      
+      const availableQuantity = await findProduct!.quantity + data.quantity
+      
+      const updateQuantity = await Product.findByIdAndUpdate(data.productId, {
+        quantity: availableQuantity,
+      }).session(session);
+      
+      const deleteFromCart = await Cart.findOneAndDelete(
+        { productId: data.productId, userEmail: data.userEmail },
+      ).session(session);
+      await session.commitTransaction();
+      await session.endSession();
+      return null;
+    } catch (error) {
+      await session.abortTransaction();
+      await session.endSession();
+    }
+}
+
 export const cartServices = {
   addProductToCart,
   getcartInformation,
   quantityUpdate,
+  removeFromCart
 };

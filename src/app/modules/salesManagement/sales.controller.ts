@@ -15,7 +15,8 @@ const createSalesHistory = catchAsync(async (req, res) => {
 });
 
 const getAllSalesInformation = catchAsync(async (req, res) => {
-  const result = await salesServices.getAllSalesInformation();
+  const {email} = req.params
+  const result = await salesServices.getAllSalesInformation(email);
 
   sendResponse(res, {
     statusCode: httpStatus.OK,

@@ -10,6 +10,6 @@ router.post(
   validateRequest(salesValidation.salesValidationSchema),
   salesControllers.createSalesHistory,
 );
-router.get('/',auth(), salesControllers.getAllSalesInformation);
+router.get('/:email',auth(), salesControllers.getAllSalesInformation);
 
 export const salesRoutes = router;
