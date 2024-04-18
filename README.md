@@ -1,5 +1,5 @@
 
-# Assignment-5-L2
+# Book-Management-Dashboard
 
 ## Description
 
@@ -18,13 +18,13 @@ Make sure you have the following installed:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/nakib1948/Assignment-5-L2.git
+   git clone https://github.com/nakib1948/Book-Management-Dashboard-server.git
    ```
 
 2. Install dependencies:
 
    ```bash
-   cd Assignment-5-L2
+   cd Book-Management-Dashboard-server
    npm install
    ```
 
